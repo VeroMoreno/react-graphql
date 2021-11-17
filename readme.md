@@ -24,3 +24,6 @@ La que vamos a usar es [Apollo Client](https://apollo.dev), que es cliente de Re
 #### Recap
 - Uso de ApolloProvider para englobar nuestra App
 - Como usar ApolloClient en main.jsx
+- Cómo usar parámetros en la query (visto en Persons.jsx > FIND_PERSON)
+  - Hacer peticiones cuando nosotros queremos, por eso usamos este hook.
+- Controlamos como se hace la petición (useLazyQuery)

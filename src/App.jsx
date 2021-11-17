@@ -1,6 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import { gql, useQuery } from '@apollo/client'
+import { Persons } from './components/Persons'
 
 //peticiones a nuestro graphql
 const ALL_PERSONS = gql`
@@ -21,7 +22,7 @@ function App() {
   // está 2 veces! En una nos devuelve la info que se está cargando (loading), sin resultados
   // la segunda vez ha terminado de cargar y nos devuelve los resultados
   // Hay que controlarlo
-  const {data, error, loading} = useQuery(ALL_PERSONS)
+  const {data, error, loading} = useQuery(ALL_PERSONS) // el resultado es un OBJ
 
 
   // Petition to graphQl server ❌, podriamos hacerlo aqui pero no tiene sentido
@@ -35,14 +36,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {loading
           ? <p>Loading...</p>
-          : (
-            <>
-              <p>GraphQL + React!</p>
-              {
-                data && data.allPersons.map(person => person.name).join(', ')
-              }
-            </>
-          )
+          : <Persons persons={data?.allPersons} />
         }
       </header>
     </div>
